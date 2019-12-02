@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+// import ChildHood from './ChildHood'
 import Child from './Child'
 
 export default class Parent extends Component {
@@ -13,20 +14,33 @@ export default class Parent extends Component {
     }
   }
 
+  handleReceive = (msg) => {
+    console.log(msg)
+  }
+
   render() {
     return (
-      <Child value={this.state.value.x.y}></Child>
+      <Child 
+        title="line 1"
+        onReceive={this.handleReceive}
+      ></Child>
     )
   }
 
   componentDidMount() {
+    // console.log('parent componentDidMount')
     // this.state.datalist.push('c')
-    this.setState({
-      value: {
-        x: {
-          y: 0
-        }
-      }
-    })
+    // this.setState({
+    //   value: {
+    //     x: {
+    //       y: 0
+    //     }
+    //   }
+    // })
+    // setTimeout(() => {
+    //   this.setState({
+    //     isShow: false
+    //   })
+    // }, 0)
   }
 }
